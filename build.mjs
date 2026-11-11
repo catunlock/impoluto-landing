@@ -25,7 +25,13 @@ const cssFile = `assets/styles.${hash(css)}.css`;
 const jsFile = `assets/main.${hash(js)}.js`;
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const abs = (p) => site.siteUrl + p;
+// Where the site is served. On GitHub Pages without a custom domain it lives under a path
+// (https://catunlock.github.io/impoluto-landing), so the workflow passes SITE_URL and BASE_PATH.
+const siteUrl = (process.env.SITE_URL || site.siteUrl).replace(/\/$/, '');
+const base = (process.env.BASE_PATH || '').replace(/\/$/, '');
+const abs = (p) => siteUrl + p;
+// Root-relative URLs ("/img/…", "/es/") get the base path in front.
+const withBase = (s) => (base ? s.replace(/(\s(?:src|href)=")\//g, `$1${base}/`).replace(/url\('\//g, `url('${base}/`) : s);
 
 const icons = {
   check: '<path d="M20 6 9 17l-5-5"/>',
@@ -278,13 +284,13 @@ function render(t) {
 rmSync(out, { recursive: true, force: true });
 mkdirSync(join(out, 'assets'), { recursive: true });
 cpSync(join(root, 'public'), out, { recursive: true });
-writeFileSync(join(out, cssFile), css);
+writeFileSync(join(out, cssFile), withBase(css));
 writeFileSync(join(out, jsFile), js);
 
 for (const t of langs) {
   const dir = join(out, t.path);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'index.html'), render(t));
+  writeFileSync(join(dir, 'index.html'), withBase(render(t)));
 }
 
 const today = new Date().toISOString().slice(0, 10);
@@ -306,4 +312,4 @@ ${langs.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.lang}" href="$
 );
 writeFileSync(join(out, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${abs('/sitemap.xml')}\n`);
 
-console.log(`Built ${langs.map((l) => l.path).join(', ')} into dist/`);
+console.log(`Built ${langs.map((l) => l.path).join(', ')} into dist/ for ${siteUrl}`);

@@ -31,7 +31,29 @@ npm run build    # solo construye
 
 Necesita Node 20 o más.
 
-## Publicarla en Vercel
+## Publicarla en GitHub Pages
+
+Cada push a `main` la publica con `.github/workflows/pages.yml`. Hace falta activarlo una vez:
+
+1. **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. GitHub Pages en un repo **privado** solo funciona con GitHub Pro (o Team). Con el plan
+   gratuito, el repo tiene que ser público (**Settings → General → Danger Zone → Change
+   visibility**). La web publicada es pública en los dos casos.
+3. Si el primer despliegue falló porque Pages no estaba activado, en **Actions → Publicar en
+   GitHub Pages → Run workflow** se vuelve a lanzar.
+
+Sin dominio propio queda en `https://catunlock.github.io/impoluto-landing/` (el workflow le
+pone ese prefijo a todas las rutas). Para servirla en **impoluto.app**:
+
+1. **Settings → Pages → Custom domain**: `impoluto.app`, y marca **Enforce HTTPS** cuando
+   lo permita (los dominios `.app` solo funcionan con HTTPS).
+2. En el registrador, para la raíz (`@`), cuatro registros `A`: `185.199.108.153`,
+   `185.199.109.153`, `185.199.110.153` y `185.199.111.153` (y, si quieres IPv6, `AAAA`
+   `2606:50c0:8000::153`, `…8001::153`, `…8002::153` y `…8003::153`). Para `www`, un `CNAME`
+   a `catunlock.github.io`.
+3. Vuelve a lanzar el workflow para que las rutas y las URL canónicas pasen a impoluto.app.
+
+## O en Vercel
 
 1. En Vercel, **Add New → Project** e importa `catunlock/impoluto-landing`. No hay que tocar
    nada: `vercel.json` ya dice que se construye con `node build.mjs` y se sirve `dist/`.
