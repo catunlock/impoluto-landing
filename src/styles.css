@@ -40,7 +40,70 @@
   --shadow-lg: 0 2px 4px rgba(16, 24, 40, 0.06), 0 30px 60px -12px rgba(23, 45, 90, 0.22);
   --wrap: 1160px;
   --gutter: 24px;
-  color-scheme: light;
+  --accent: #1f5fcf;
+  --banner: #141924;
+  --header-bg: rgba(251, 251, 252, 0.82);
+  --sky-mid: #edf2fb;
+  --sun-glow: radial-gradient(circle, rgba(255, 201, 77, 0.55) 0%, rgba(255, 201, 77, 0.18) 45%, rgba(255, 201, 77, 0) 70%);
+  --spark: #fff;
+  --spark-glow: drop-shadow(0 2px 6px rgba(52, 120, 236, 0.25));
+  --pill-bg: rgba(255, 255, 255, 0.7);
+  --pill-line: rgba(52, 120, 236, 0.18);
+  --frame: #fff;
+  --frame-line: rgba(20, 25, 36, 0.08);
+  --bar: #f3f4f7;
+  --bar-dot: #dadde3;
+  --phone: #1a1e27;
+  --dash: #cfd5de;
+  --shot-filter: none;
+  color-scheme: light dark;
+}
+
+/* Dark theme: follows the system setting. A night version of the same sky, with a moon
+   where the sun was. The app screenshots stay as they are (the app is light), a touch dimmer. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1119;
+    --soft: #121824;
+    --card: #171e2b;
+    --text: #edf0f5;
+    --muted: #a3acbb;
+    --faint: #7b8494;
+    --line: #262f3f;
+    --primary: #3f82f2;
+    --primary-dark: #5a96f7;
+    --primary-soft: rgba(79, 149, 255, 0.16);
+    --sky-top: #14213d;
+    --sky-mid: #101829;
+    --sky-bottom: #0d1119;
+    --accent: #8ab6ff;
+    --banner: #1c2535;
+    --header-bg: rgba(13, 17, 25, 0.8);
+    --sun-glow: radial-gradient(circle, rgba(214, 226, 255, 0.3) 0%, rgba(150, 180, 255, 0.1) 40%, rgba(150, 180, 255, 0) 68%);
+    --spark: #dbe7ff;
+    --spark-glow: drop-shadow(0 0 8px rgba(138, 182, 255, 0.55));
+    --pill-bg: rgba(79, 149, 255, 0.1);
+    --pill-line: rgba(138, 182, 255, 0.28);
+    --frame: #1b2230;
+    --frame-line: rgba(255, 255, 255, 0.1);
+    --bar: #1b2230;
+    --bar-dot: #364154;
+    --phone: #05070b;
+    --dash: #34405a;
+    --shot-filter: brightness(0.9);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+  }
+  .phone {
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+  .browser-url {
+    background: #111723;
+  }
+  .final-card {
+    background: linear-gradient(135deg, #2f6fe0 0%, #2459c9 50%, #1a3f96 100%);
+  }
 }
 
 *,
@@ -79,7 +142,7 @@ img {
 }
 
 a {
-  color: var(--primary-dark);
+  color: var(--accent);
 }
 
 h1,
@@ -126,7 +189,7 @@ p {
   left: 12px;
   top: -60px;
   z-index: 100;
-  background: var(--text);
+  background: var(--banner);
   color: #fff;
   padding: 10px 16px;
   border-radius: 10px;
@@ -204,7 +267,7 @@ p {
 /* ——— Language suggestion ——— */
 
 .lang-suggest {
-  background: var(--text);
+  background: var(--banner);
   color: #fff;
   font-size: 15px;
 }
@@ -245,7 +308,7 @@ p {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(251, 251, 252, 0.82);
+  background: var(--header-bg);
   backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
   border-bottom: 1px solid transparent;
@@ -317,7 +380,7 @@ p {
   position: absolute;
   inset: -68px 0 22% 0;
   z-index: -1;
-  background: linear-gradient(180deg, var(--sky-top) 0%, #edf2fb 45%, var(--sky-bottom) 100%);
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 45%, var(--sky-bottom) 100%);
   overflow: hidden;
   -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent);
   mask-image: linear-gradient(180deg, #000 70%, transparent);
@@ -329,12 +392,12 @@ p {
   right: max(-80px, calc(50% - 720px));
   top: 40px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 201, 77, 0.55) 0%, rgba(255, 201, 77, 0.18) 45%, rgba(255, 201, 77, 0) 70%);
+  background: var(--sun-glow);
 }
 .spark {
   position: absolute;
-  color: #fff;
-  filter: drop-shadow(0 2px 6px rgba(52, 120, 236, 0.25));
+  color: var(--spark);
+  filter: var(--spark-glow);
 }
 .spark-1 {
   width: 46px;
@@ -364,11 +427,11 @@ p {
   font-weight: 650;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--primary-dark);
+  color: var(--accent);
 }
 .eyebrow {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(52, 120, 236, 0.18);
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-line);
   padding: 6px 14px;
   border-radius: 999px;
   margin-bottom: 22px;
@@ -420,10 +483,10 @@ h1 {
 /* ——— Frames ——— */
 
 .browser {
-  background: #fff;
+  background: var(--frame);
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(20, 25, 36, 0.08);
+  border: 1px solid var(--frame-line);
   box-shadow: var(--shadow);
 }
 .browser-bar {
@@ -432,30 +495,31 @@ h1 {
   gap: 7px;
   height: 36px;
   padding: 0 14px;
-  background: #f3f4f7;
+  background: var(--bar);
   border-bottom: 1px solid var(--line);
 }
 .browser-bar > span {
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: #dadde3;
+  background: var(--bar-dot);
 }
 .browser-url {
   margin: 0 auto;
   padding: 3px 14px;
   font-size: 12px;
   color: var(--faint);
-  background: #fff;
+  background: var(--frame);
   border-radius: 999px;
   transform: translateX(-20px);
 }
 .browser img {
   width: 100%;
+  filter: var(--shot-filter);
 }
 
 .phone {
-  background: #1a1e27;
+  background: var(--phone);
   padding: 9px;
   border-radius: 42px;
   box-shadow: var(--shadow-lg);
@@ -463,6 +527,7 @@ h1 {
 .phone img {
   width: 100%;
   border-radius: 33px;
+  filter: var(--shot-filter);
 }
 
 /* ——— Facts ——— */
@@ -531,7 +596,7 @@ h1 {
   height: 36px;
   border-radius: 50%;
   background: var(--primary-soft);
-  color: var(--primary-dark);
+  color: var(--accent);
   font-weight: 700;
   font-size: 16px;
   margin-bottom: 18px;
@@ -594,7 +659,7 @@ h1 {
   padding: 4px;
   border-radius: 50%;
   background: var(--primary-soft);
-  color: var(--primary-dark);
+  color: var(--accent);
   stroke-width: 2.6;
   margin-top: 1px;
 }
@@ -642,7 +707,7 @@ h1 {
   padding: 11px;
   border-radius: 12px;
   background: var(--primary-soft);
-  color: var(--primary-dark);
+  color: var(--accent);
   margin-bottom: 18px;
 }
 .card h3 {
@@ -656,11 +721,11 @@ h1 {
 .card-soon {
   background: transparent;
   border-style: dashed;
-  border-color: #cfd5de;
+  border-color: var(--dash);
   box-shadow: none;
 }
 .card-soon .card-icon {
-  background: #fff;
+  background: var(--card);
   color: var(--muted);
 }
 

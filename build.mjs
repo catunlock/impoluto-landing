@@ -101,7 +101,9 @@ function render(t) {
     <meta name="description" content="${esc(t.meta.description)}">
     <link rel="canonical" href="${abs(t.path)}">
     ${alternates}
-    <meta name="theme-color" content="${site.themeColor}">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fbfbfc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1119" media="(prefers-color-scheme: dark)">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="${site.name}">
     <meta property="og:title" content="${esc(t.meta.title)}">
