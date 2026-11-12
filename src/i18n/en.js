@@ -36,7 +36,7 @@ export default {
     steps: [
       {
         t: 'Draw your home',
-        d: 'Upload the floor plan from the estate agent’s listing and Impoluto reads the rooms, walls, doors and windows. No plan? Pick a layout by size, bedrooms and bathrooms, or draw it from scratch.',
+        d: 'Upload the floor plan from the estate agent’s listing and Impoluto reads the rooms, walls, doors and windows. No plan? Pick a layout or draw it. In a hurry? Skip the plan and just list your rooms.',
       },
       {
         t: 'Add what you have',
@@ -83,9 +83,17 @@ export default {
       {
         t: 'Your floor plan, in 3D in minutes',
         d: 'Impoluto reads the plan in the app, without AI, and works out the scale from the floor area. Then you fix anything in the 2D editor: move corners, split rooms, add doors and windows, choose floors and wall colours.',
-        points: ['Upload a plan, start from a template or draw it', 'Switch between 2D and 3D at any time'],
+        points: ['Upload a plan, start from a layout or draw it', 'Switch between 2D and 3D at any time'],
         img: 'plan-editor',
         alt: 'The floor plan editor with the rooms of a flat and their size in square metres',
+        kind: 'desktop',
+      },
+      {
+        t: 'No floor plan? Start without one',
+        d: 'If you just want the chores sorted today, skip the drawing. Say which rooms you have and name them: “Leo’s room”, “Upstairs bathroom”. They appear as separate blocks, already a sensible size, and you go straight to what’s in each one.',
+        points: ['Nothing to scan, nothing to draw', 'Same furniture, chores and fair sharing', 'Make the real floor plan later, if you ever want to'],
+        img: 'no-plan',
+        alt: 'Setting up a home without a floor plan: a counter for each kind of room and the rooms shown as separate blocks',
         kind: 'desktop',
       },
     ],
@@ -114,7 +122,7 @@ export default {
     title: 'Questions',
     items: [
       { q: 'How much does it cost?', a: 'Impoluto is free while in early access. Some extras, like furnishing your home from photos, will be part of a paid plan later on.' },
-      { q: 'Do I need a floor plan?', a: 'No. You can pick a layout by size, bedrooms and bathrooms, or draw your home from scratch. If you do have a plan, an image from the estate agent’s listing is enough.' },
+      { q: 'Do I need a floor plan?', a: 'No. The quickest way is to skip it: say which rooms you have and they appear as separate blocks, ready for their furniture and chores. You can also pick a layout by size, bedrooms and bathrooms, or draw your home from scratch. If you do have a plan, an image from the estate agent’s listing is enough.' },
       { q: 'Do I have to place every piece of furniture?', a: 'No. “Furnish automatically” puts the usual things in each room according to its type and size. Then you move, rotate or remove whatever you like.' },
       { q: 'How does Impoluto decide who does what?', a: 'It counts the minutes each person has done in the last four weeks, plus what they already have assigned, divided by their share of the work. The next chore goes to whoever has the fewest, and never to the same person twice in a row.' },
       { q: 'Who is it for?', a: 'Anyone who shares a home: couples, families and flatmates. One person sets up the home and invites the others.' },

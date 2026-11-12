@@ -57,6 +57,7 @@ const IMG = {
   'map-desktop': [1600, 1000],
   'furniture-3d': [1600, 1000],
   'plan-editor': [1600, 1000],
+  'no-plan': [1280, 800],
   'map-phone': [780, 1688],
   'today-phone': [780, 1688],
   'fair-phone': [780, 1688],
