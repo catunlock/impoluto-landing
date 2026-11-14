@@ -57,6 +57,7 @@ const IMG = {
   'map-desktop': [1600, 1000],
   'furniture-3d': [1600, 1000],
   'plan-editor': [1600, 1000],
+  'no-plan': [1280, 800],
   'map-phone': [780, 1688],
   'today-phone': [780, 1688],
   'fair-phone': [780, 1688],
@@ -101,7 +102,9 @@ function render(t) {
     <meta name="description" content="${esc(t.meta.description)}">
     <link rel="canonical" href="${abs(t.path)}">
     ${alternates}
-    <meta name="theme-color" content="${site.themeColor}">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fbfbfc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1119" media="(prefers-color-scheme: dark)">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="${site.name}">
     <meta property="og:title" content="${esc(t.meta.title)}">

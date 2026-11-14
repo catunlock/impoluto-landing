@@ -36,7 +36,7 @@ export default {
     steps: [
       {
         t: 'Dibuja tu casa',
-        d: 'Sube el plano del anuncio de la inmobiliaria e Impoluto saca las habitaciones, las paredes, las puertas y las ventanas. ¿No tienes plano? Elige uno tipo por metros, dormitorios y baños, o dibújalo desde cero.',
+        d: 'Sube el plano del anuncio de la inmobiliaria e Impoluto saca las habitaciones, las paredes, las puertas y las ventanas. ¿No tienes plano? Elige uno tipo o dibújalo. ¿Tienes prisa? Sáltatelo y di solo qué estancias hay.',
       },
       {
         t: 'Pon lo que tienes',
@@ -88,6 +88,14 @@ export default {
         alt: 'El editor del plano con las habitaciones de un piso y sus metros cuadrados',
         kind: 'desktop',
       },
+      {
+        t: '¿Sin plano? Empieza sin él',
+        d: 'Si lo que quieres es tener las tareas resueltas hoy, sáltate el dibujo. Di qué estancias hay y ponles nombre: «Habitación de Leo», «Baño de arriba». Salen como bloques sueltos, ya con un tamaño razonable, y pasas directamente a qué hay en cada una.',
+        points: ['Nada que escanear ni que dibujar', 'Los mismos muebles, tareas y reparto justo', 'Haz el plano de verdad más adelante, si algún día quieres'],
+        img: 'no-plan',
+        alt: 'Alta de una casa sin plano: un contador por cada tipo de estancia y las estancias como bloques sueltos',
+        kind: 'desktop',
+      },
     ],
   },
   more: {
@@ -114,7 +122,7 @@ export default {
     title: 'Preguntas frecuentes',
     items: [
       { q: '¿Cuánto cuesta?', a: 'Impoluto es gratis durante el acceso anticipado. Algunos extras, como amueblar la casa a partir de fotos, serán parte de un plan de pago más adelante.' },
-      { q: '¿Necesito el plano de mi casa?', a: 'No. Puedes elegir un plano tipo por metros, dormitorios y baños, o dibujar tu casa desde cero. Si tienes plano, basta con la imagen del anuncio de la inmobiliaria.' },
+      { q: '¿Necesito el plano de mi casa?', a: 'No. Lo más rápido es saltártelo: dices qué estancias hay y salen como bloques sueltos, listas para ponerles sus muebles y tareas. También puedes elegir un plano tipo por metros, dormitorios y baños, o dibujar tu casa desde cero. Si tienes plano, basta con la imagen del anuncio de la inmobiliaria.' },
       { q: '¿Tengo que poner todos los muebles?', a: 'No. «Amueblar automáticamente» pone lo típico de cada habitación según su tipo y su tamaño. Luego mueves, giras o quitas lo que quieras.' },
       { q: '¿Cómo decide Impoluto quién hace qué?', a: 'Cuenta los minutos que ha hecho cada persona en las últimas cuatro semanas, más lo que ya tiene asignado, divididos por su parte del trabajo. La siguiente tarea va a quien menos lleva, y nunca dos veces seguidas a la misma persona.' },
       { q: '¿Para quién es?', a: 'Para cualquiera que comparta casa: parejas, familias y pisos compartidos. Una persona crea la casa e invita a las demás.' },

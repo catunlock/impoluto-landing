@@ -68,7 +68,8 @@ pone ese prefijo a todas las rutas). Para servirla en **impoluto.app**:
 
 ## La app en app.impoluto.app
 
-Los botones «Create your home» / «Crear mi casa» llevan a `https://app.impoluto.app`
-(`appUrl` en `site.config.js`). Para que funcionen, en el proyecto de Vercel de la **app**
+Los botones «Create your home» / «Crear mi casa» llevan a la app publicada,
+`https://impoluto-sepia.vercel.app` (`appUrl` en `site.config.js`, el mismo dominio que
+`brand.json` en el repo de la app). Para pasarla a `app.impoluto.app`, en el proyecto de Vercel de la **app**
 (no en este) añade el dominio `app.impoluto.app` y en el DNS un `CNAME` de `app` a
 `cname.vercel-dns.com`. Si la app va en otra dirección, cambia `appUrl` y vuelve a publicar.
